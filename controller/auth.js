@@ -16,13 +16,9 @@ export const register = async (req, res) => {
       password: hashedPassword,
       fullname,
     });
-    const token = jwt.sign(
-      { email: result.email, id: result._id },
-      process.env.TOKEN,
-      {
-        expiresIn: "1h",
-      }
-    );
+    const token = jwt.sign({ email: result.email, id: result._id }, "test", {
+      expiresIn: "1h",
+    });
     res.status(200).json({ result, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
@@ -41,13 +37,9 @@ export const login = async (req, res) => {
     if (!isPasswordCorrect) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    const token = jwt.sign(
-      { email: user.email, id: user._id },
-      process.env.TOKEN,
-      {
-        expiresIn: "1h",
-      }
-    );
+    const token = jwt.sign({ email: user.email, id: user._id }, "test", {
+      expiresIn: "1h",
+    });
     res.status(200).json({ result: user, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });

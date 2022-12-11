@@ -10,9 +10,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// const URL =
-//   "mongodb+srv://minhthai:thanhhoainun1@cluster0.zadf4hh.mongodb.net/?retryWrites=true&w=majority";
-const URL = process.env.URL;
+const URL =
+  "mongodb+srv://minhthai:thanhhoainun1@cluster0.zadf4hh.mongodb.net/?retryWrites=true&w=majority";
+// const URL = process.env.URL;
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" }));
 app.use(express.json());
